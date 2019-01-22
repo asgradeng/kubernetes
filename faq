@@ -1,0 +1,18 @@
+1. Examine the current status of your cluster. Are all the nodes ready? How do you know?
+
+The command kubectl get nodes will give the current status of all nodes.
+
+2. Are there any pods running on node 2 of your cluster? How can you tell?
+
+You can get this information in a variety of ways:
+
+kubectl describe node node-name
+kubectl get pods --all-namespaces -o wide will list all pods and which nodes they are currently running on.
+
+3. Is the master node low on memory currently? How can you tell?
+
+kubectl describe node node-2-name will list DiskPressure and MemoryPressure statuses so you can see how it is doing.
+
+4. What pods are running in the kube-system namespace? What command did you use to find out?
+
+ kubectl get pods -n kube-system will provide the desired results.
