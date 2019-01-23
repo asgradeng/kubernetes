@@ -1,0 +1,32 @@
+Here is some yaml for an nginx deployment:
+
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  replicas: 2 
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.7.9
+        ports:
+        - containerPort: 80
+1. Create the deployment.
+
+2. Which nodes are the pods running on. How can you tell?
+
+3. Update the deployment to use the 1.8 version of the nginx container and roll it out.
+
+4. Update the deployment to use the 1.9.1 version of the nginx container and roll it out.
+
+5. Roll back the deployment to the 1.8 version of the container.
+
+6. Remove the deployment
